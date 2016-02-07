@@ -164,6 +164,96 @@
 					</section>
 				</section>
 
+				<section>
+					<h1> Different workflows on Github </h1>
+					<ul>
+						<li>Naive approach</li>
+						<li>Branch and merge</li>
+						<li>Fork and merge</li>
+						<li>Pull requests</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Naive approach</h2>
+						<table>
+							<caption>Situation</caption>
+							<tr><td>Remotes</td><td> 1</td></tr>
+							<tr><td>Branches</td><td> 1</td></tr>
+						</table>
+					</section>
+					<section>
+						<table>
+							<tr> <th> Pros </th> <th> Cons </th> </tr>
+							<tr>
+								<td> Simple </td>
+								<td> More frequent merge conflicts </td>
+							</tr>
+							<tr>
+								<td> </td>
+								<td> Requires everyone has write access </td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Master/production can be disabled for time </td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Summary</h2>
+						<p>The naive approach is ideal for simple projects involving one user (think version controlling your school notes and homework), but is extremely problematic for most other projects.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Branch and merge</h2>
+						<table>
+							<caption> Situation </caption>
+							<tr><td>Remotes</td><td> 1 </td></tr>
+							<tr><td>Branches</td><td> Multiple </td></tr>
+						</table>
+					</section>
+					<section>
+						<table>
+							<tr> <th> Pros </th> <th> Cons </th> </tr>
+							<tr>
+								<td> Features can be worked on independently</td>
+								<td> Have to remember to keep feature branches up to date</td>
+							</tr>
+							<tr>
+								<td> Branches can be checked to work before merging into master</td>
+								<td> Requires everyone has write access </td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Summary</h2>
+						<p>Branching and merging is a good solution when working on a small trusted team. Master branch can be thought of as safe as experimental features can be worked on in feature branches. Works well for hackathons and such.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Fork and merge</h2>
+						<table>
+							<caption> Situation </caption>
+							<tr><td>Remotes</td><td>#members+1</td></tr>
+							<tr><td>Branches</td><td>1-many</td></tr>
+						</table>
+					</section>
+					<section>
+						<table>
+							<tr> <th> Pros </th> <th> Cons </th> </tr>
+							<tr>
+								<td>Each person has their own remote, so editing your own history won't mess up other people's repo(this is necessary in some companies that don't like numerous commits that can be squeezed into one</td>
+								<td>Have to ensure that the history you modify hasn't hit the upstream rep</td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+						</table>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
