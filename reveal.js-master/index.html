@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -61,7 +61,6 @@
 					<section>
 						<h2>Installing git</h2>
 						<table>
-							<caption> Linux </caption>
 							<tr>
 								<th>Distro</th><th>Command</th>
 							</tr>
@@ -80,7 +79,6 @@
 							<tr>
 								<td>Gentoo</td><td>#emerge dev-vcs/git</td>
 							</tr>
-							<caption> Other operating systems </caption>
 							<tr>
 								<th> OS </th><th>Command</th>
 							</tr>
@@ -161,12 +159,41 @@
 				<section>
 					<section>
 						<h2>Visualizing Git</h2>
-						Add images to this slide set
 					</section>
-				</section>
+					<section>
+						<h2>A repo is represented as a graph</h2>
+						<pre>
+     A--B--C--D topic                       A--B--C--D topic
+    /                       --&gt;            /          \
+E--F--G--H--I--J master                E--F--G--H--I---J master
+						</pre>
+						<p>Each letter represents a commit, and different lines represent different branches</p>
+					</section>
+					<section>
+						<h2> remotes </h2>
+						<pre>
+origin                                  upstream
 
-				<section>
-					Add Git commands and explanations here
+     A--B--C--D topic HEAD                     
+    /                                          
+E--F--G--H--I master                    E--F--G--H--I--J--K master
+
+refs
+|
+&gt;---remotes
+    |
+    &gt;---origin
+    |   |
+    |   &gt;---master
+    |   &gt;---topic
+    |   &gt;---HEAD
+    |
+    &gt;---upstream
+    |   |
+    |   &gt;---master
+						</pre>
+						<p>Info from remotes is stored locally, and is udpated using git fetch. </p>
+					</section>
 				</section>
 
 				<section>
@@ -188,6 +215,28 @@
 						<code>$git add &lt;file&gt;</code>
 						<p>Adds a modified or new file to be staged in order to be committed.</p>
 					</section>
+					<section>
+						<pre>
+$git status
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+						</pre>
+						<pre>
+$git add index.html; git status;
+						</pre>
+						<pre>
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   index.html
+						</pre>
+					</section>
 				</section>
 
 				<section>
@@ -196,6 +245,22 @@
 						<code>$git rm &lt;file&gt;</code>
 						<p>Stages a file to be removed in the next commit.</p>
 					</section>
+					<section>
+						<pre>
+$ls
+unnecessary_file   src/    README.md
+$git status
+On branch master
+nothing to commit, working directory clean
+$git rm unnecessary_file
+rm 'unnecessary_file'
+$git status
+Changes to be committed:
+   (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+      deleted:   unnecessary_file
+						</pre>
+					</section>
 				</section>
 
 				<section>
@@ -203,6 +268,20 @@
 						<h2>Git commit</h2>
 						<code>$git commit &lt;remote&gt; &lt;branch&gt;</code>
 						<p>Makes a "save" of the currently staged changes</p>
+					</section>
+					<section>
+						<pre>
+$git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   index.html
+        deleted:    unnecessary_file
+$git commit -m "Removed unnecessary_file, and updated index"
+
+						</pre>
 					</section>
 				</section>
 
