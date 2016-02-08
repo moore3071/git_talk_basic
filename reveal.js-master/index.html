@@ -197,6 +197,18 @@ refs
 				</section>
 
 				<section>
+					<section>
+						<h2>What's on your computer vs what's on the server</h2>
+						<p>One good question is what differentiates your repository on your computer from the remotes you interact with? The two are different:</p>
+						<ul>
+							<li>Remote repos: are bare</li>
+							<li>Local repos: have a HEAD and working tree</li>
+						</ul>
+						<p>HEAD: the commit where you are</p>
+					</section>
+				</section>
+
+				<section>
 					<h2>Common Git commands</h2>
 					<ul>
 						<li>git add</li>
@@ -316,8 +328,18 @@ $
 
 				<section>
 					<section>
-						<h2>Git rebase</h2>
-						<p>I need to research this myself</p>
+						<h2>Git reset</h2>
+						<code>$git reset --hard &lt;commit-sha&gt;</code>
+						<p>Bring head back to a specific commit or HEAD(gets rid of all staged changes)</p>
+						<code>$git reset &lt;file&gt;</code>
+						<p>Unstages a file that is staged for commit</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Git revert</h2>
+						<code>$git revert &lt;commit-sha&gt;</code>
+						<p>Get rid of the changes made in a specific commit</p>
 					</section>
 				</section>
 
@@ -448,9 +470,22 @@ $
 					</section>
 				</section>
 				<section>
-					<h2>FAQ</h2>
-					<h3>Frequently asked questions, and concerns</h3>
-					<p>Q: </p>
+					<section>
+						<h2>FAQ</h2>
+						<h3>Frequently asked questions, and concerns</h3>
+					</section>
+					<section>
+						<p>Q: Are merge conflicts as impossible to deal with as they were in software II?</p>
+						<p>A: No, Software 2 used SVN which was centralized version control. Merge conflicts are rarer with distributed version control, and are usually not nearly as complex</p>
+					</section>
+					<section>
+						<p>Q: I REALLY don't want to mess up BOBs work by writing to the same file, so should I just copy the file and work on it separately?</p>
+						<p>A: No. If you're really concerned about overlapping, create a branch and merge at a later point when you can know it's safe</p>
+					</section>
+					<section>
+						<p>Q: How much should I commit? Should I commit half the project at once or should I commit after every sentence?</p>
+						<p>A: It's recommended that commits be atomic and not encompass a large amount of material. E.G. If you've added parsing for a language and implemented an automatic build feature in a project you should add the files(or parts of a file when you're more comfortable with git) and then commit the first part, then add the automatic build code and make it a separate commit</p>
+					</section>
 				</section>
 
 			</div>
